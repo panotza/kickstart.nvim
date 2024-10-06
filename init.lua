@@ -186,7 +186,7 @@ else
     -- after the plugin has been loaded:
     --  config = function() ... end
 
-    {                   -- Useful plugin to show you pending keybinds.
+    { -- Useful plugin to show you pending keybinds.
       'folke/which-key.nvim',
       event = 'VimEnter', -- Sets the loading event to 'VimEnter'
       opts = {
@@ -229,7 +229,7 @@ else
 
         -- Document existing key chains
         spec = {
-          { '<leader>c', group = '[C]ode',     mode = { 'n', 'x' } },
+          { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
           { '<leader>d', group = '[D]ocument' },
           { '<leader>r', group = '[R]ename' },
           { '<leader>s', group = '[S]earch' },
@@ -269,7 +269,7 @@ else
         { 'nvim-telescope/telescope-ui-select.nvim' },
 
         -- Useful for getting pretty icons, but requires a Nerd Font.
-        { 'nvim-tree/nvim-web-devicons',            enabled = vim.g.have_nerd_font },
+        { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
       },
       config = function()
         -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -365,7 +365,7 @@ else
         },
       },
     },
-    { 'Bilal2453/luvit-meta',     lazy = true },
+    { 'Bilal2453/luvit-meta', lazy = true },
     {
       -- Main LSP Configuration
       'neovim/nvim-lspconfig',
@@ -377,7 +377,7 @@ else
 
         -- Useful status updates for LSP.
         -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-        { 'j-hui/fidget.nvim',       opts = {} },
+        { 'j-hui/fidget.nvim', opts = {} },
 
         -- Allows extra capabilities provided by nvim-cmp
         'hrsh7th/cmp-nvim-lsp',
@@ -739,7 +739,7 @@ else
       end,
     },
 
-    { 
+    {
       -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
       'catppuccin/nvim',
       name = 'catppuccin',
@@ -862,3 +862,4 @@ else
     },
   })
 end
+
