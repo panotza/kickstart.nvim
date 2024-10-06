@@ -1,6 +1,5 @@
 return {
     'tris203/precognition.nvim',
-    cond = (function() return not vim.g.vscode end),
     event = 'VeryLazy',
     opts = {
         -- startVisible = true,
