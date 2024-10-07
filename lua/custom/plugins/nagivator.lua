@@ -23,6 +23,7 @@ return {
     require('navigator').setup {
       lsp_signature_help = true, -- enable ray-x/lsp_signature
       lsp = { disable_lsp = 'all' },
+      mason = true,
     }
 
     vim.api.nvim_create_autocmd('FileType', {
@@ -30,9 +31,9 @@ return {
       callback = function(ev)
         -- CTRL/control keymaps
         vim.api.nvim_buf_set_keymap(0, 'n', '<C-i>', ':GoImport<CR>', {})
-        vim.api.nvim_buf_set_keymap(0, 'n', '<C-b>', ':GoBuild %:h<CR>', {})
-        vim.api.nvim_buf_set_keymap(0, 'n', '<C-t>', ':GoTestPkg<CR>', {})
-        vim.api.nvim_buf_set_keymap(0, 'n', '<C-c>', ':GoCoverage -p<CR>', {})
+        -- vim.api.nvim_buf_set_keymap(0, 'n', '<C-b>', ':GoBuild %:h<CR>', {})
+        -- vim.api.nvim_buf_set_keymap(0, 'n', '<C-t>', ':GoTestPkg<CR>', {})
+        -- vim.api.nvim_buf_set_keymap(0, 'n', '<C-c>', ':GoCoverage -p<CR>', {})
 
         -- Opens test files
         -- vim.api.nvim_buf_set_keymap(0, 'n', 'A', ":lua require('go.alternate').switch(true, '')<CR>", {}) -- Test

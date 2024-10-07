@@ -31,6 +31,10 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+vim.keymap.set('n', '[^', function()
+  require('treesitter-context').go_to_context(vim.v.count1)
+end, { desc = 'Jumping to context (upwards)' }, { silent = true })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -659,6 +663,15 @@ require('lazy').setup({
     'catppuccin/nvim',
     name = 'catppuccin',
     priority = 1000, -- Make sure to load this before all the other start plugins.
+    config = function()
+      require('catppuccin').setup {
+        custom_highlights = function(colors)
+          return {
+            LineNr = { fg = colors.overlay2 },
+          }
+        end,
+      }
+    end,
     init = function()
       vim.cmd.colorscheme 'catppuccin-macchiato'
 
@@ -724,13 +737,11 @@ require('lazy').setup({
         additional_vim_regex_highlighting = { 'ruby' },
       },
       indent = { enable = true, disable = { 'ruby' } },
+      incremental_selection = { enable = true },
     },
-    -- There are additional nvim-treesitter modules that you can use to interact
-    -- with nvim-treesitter. You should go explore a few and see what interests you:
-    --
-    --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-    --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-    --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+    dependencies = {
+      { 'nvim-treesitter/nvim-treesitter-context', opts = { mode = 'topline', line_numbers = true } },
+    },
   },
 
   require 'kickstart.plugins.debug',
