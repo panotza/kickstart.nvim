@@ -33,7 +33,12 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 vim.keymap.set('n', '[^', function()
   require('treesitter-context').go_to_context(vim.v.count1)
-end, { desc = 'Jumping to context (upwards)' }, { silent = true })
+end, { desc = 'Jumping to context (upwards)', silent = true })
+
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldnestmax = 4
+vim.opt.foldenable = false
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
