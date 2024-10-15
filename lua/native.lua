@@ -745,7 +745,7 @@ require('lazy').setup({
       incremental_selection = { enable = true },
     },
     dependencies = {
-      { 'nvim-treesitter/nvim-treesitter-context', opts = { mode = 'topline', line_numbers = true } },
+      { 'nvim-treesitter/nvim-treesitter-context', opts = { mode = 'topline', line_numbers = true, max_lines = 3 } },
     },
   },
 
