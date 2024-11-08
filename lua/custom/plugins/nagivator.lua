@@ -1,5 +1,6 @@
 return {
   'ray-x/navigator.lua',
+  cond = false,
   dependencies = {
     { 'hrsh7th/nvim-cmp' },
     { 'nvim-treesitter/nvim-treesitter' },
